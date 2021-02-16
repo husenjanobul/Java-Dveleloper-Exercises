@@ -2,21 +2,19 @@ package services;
 
 import interfaces.Course;
 import interfaces.ExtraSessions;
+import lombok.Data;
 
+@Data
 public class Java implements Course {
 
-   private OfficeHours officeHours;
+//   private OfficeHours officeHours;
+    //or
+    private  ExtraSessions extraSessions;
 
-    public OfficeHours getOfficeHours() {
-        return officeHours;
-    }
 
-    public void setOfficeHours(OfficeHours officeHours) {
-        this.officeHours = officeHours;
-    }
 
     @Override
     public void getTeachingHours() {
-        System.out.println("Weekly teaching hours: " + (30+ officeHours.getHours()));
+        System.out.println("Weekly teaching hours: " + (30+ extraSessions.getHours()));
     }
 }

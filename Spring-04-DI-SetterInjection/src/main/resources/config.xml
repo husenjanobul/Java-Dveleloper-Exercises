@@ -5,7 +5,9 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="java" class="services.Java">
-        <property name="officeHours" ref="officeHours" />
+<!--        <property name="officeHours" ref="officeHours" />-->
+<!--        or-->
+        <property name="extraSessions" ref="officeHours" />
     </bean>
     <bean id="selenium" class="services.Selenium"></bean>
     <bean id="officeHours" class="services.OfficeHours"></bean>
