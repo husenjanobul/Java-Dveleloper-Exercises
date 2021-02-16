@@ -1,17 +1,18 @@
 package services;
 
 import interfaces.Course;
+import interfaces.ExtraSessions;
 
 public class Java implements Course {
 
-    OfficeHours officeHours;
+    ExtraSessions extraSessions;
 
     public Java(OfficeHours officeHours) {
-        this.officeHours = officeHours;
+        this.extraSessions = officeHours;
     }
 
     @Override
     public void getTeachingHours() {
-        System.out.println("Weekly teaching hours: " + (30+ officeHours.getHours()));
+        System.out.println("Weekly teaching hours: " + (30+ extraSessions.getHours()));
     }
 }
