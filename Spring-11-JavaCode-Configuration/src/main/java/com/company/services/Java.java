@@ -1,17 +1,19 @@
 package com.company.services;
 
 import com.company.interfaces.Course;
-import org.springframework.stereotype.Component;
+import com.company.interfaces.ExtraSessions;
 
-import java.util.Arrays;
-
-@Component
 public class Java implements Course {
 
+    private ExtraSessions extraSessions;
+
+    public Java(ExtraSessions extraSessions) {
+        this.extraSessions = extraSessions;
+    }
 
     @Override
     public void getTeachingHours() {
-        System.out.println("Weekly teaching hours: 30");
+        System.out.println("Weekly teaching hours: " + (30+extraSessions.getHours()));
     }
 
 }
