@@ -13,6 +13,7 @@ public class CompanyApp {
 
         Course course = container.getBean("java",Course.class);
         course.getTeachingHours();
+        course.toString();
 
 
 
