@@ -17,5 +17,27 @@
 <h5 th:text="${'My birthday is: '+ birthday}" ></h5>
 
 
+<h1 th:text="${student.getFirstName()}"></h1>
+<h1 th:text="${student.firstName}"></h1>
+
+<!--link-->
+<a th:href="@{https://google.com}">Google</a>
+<a th:href="@{/student/register}">Register</a>
+
+<a th:href="@{/student/welcome(id=4)}">Link4</a>
+<a th:href="@{/student/welcome(id = ${student.id})}">Link5</a>
+
+<!--Iteration-->
+<ul>
+    <li th:each="number: ${num}" th:text="${number}"></li>
+</ul>
+
+<!--Fragment-->
+<div th:replace="fragment/footer :: husenjan"></div>
+
+
+
+
+
 </body>
 </html>
