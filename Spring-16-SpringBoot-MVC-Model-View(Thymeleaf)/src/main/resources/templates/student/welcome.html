@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+<h2 th:text="${name}" ></h2>
+<h3 th:text="${course}"></h3>
+<h3 th:text="${id}"></h3>
+<h4 th:text="${num}"></h4>
+<h4 th:text="${num.get(1)}"></h4>
+<h5 th:text="${birthday}" ></h5>
+
+<h5 th:text="${'My birthday is: '+ birthday}" ></h5>
+
+
+</body>
+</html>

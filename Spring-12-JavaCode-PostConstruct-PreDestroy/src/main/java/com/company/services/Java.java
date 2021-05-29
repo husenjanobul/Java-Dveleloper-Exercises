@@ -1,10 +1,12 @@
 package com.company.services;
 
 import com.company.interfaces.Course;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Component
 public class Java implements Course {
     @PostConstruct
     public void postConstruct(){
@@ -18,6 +20,6 @@ public class Java implements Course {
 
     @Override
     public void getTeachingHours() {
-
+        System.out.println("Teaching hours: 30");
     }
 }
