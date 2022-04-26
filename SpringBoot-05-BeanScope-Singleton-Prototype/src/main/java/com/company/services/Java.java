@@ -3,7 +3,7 @@ package com.company.services;
 import com.company.interfaces.Course;
 import lombok.Data;
 
-@Data
+//@Data
 public class Java implements Course {
     @Override
     public void getTeachingHours() {

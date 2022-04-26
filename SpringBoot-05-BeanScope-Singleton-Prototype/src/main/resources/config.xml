@@ -4,7 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="java" class="com.company.services.Java"></bean>
+<!--    //provide same object-->
+<!--    <bean id="java" class="com.company.services.Java"></bean>-->
+
+<!--    //provide different object-->
+    <bean id="java" class="com.company.services.Java" scope="prototype"></bean>
     <bean id="selenium" class="com.company.services.Selenium"></bean>
 
 </beans>
