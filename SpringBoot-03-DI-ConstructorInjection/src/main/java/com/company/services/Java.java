@@ -6,8 +6,8 @@ import com.company.interfaces.ExtraSessions;
 public class Java implements Course {
 
     ExtraSessions extraSessions;
-    public Java(OfficeHours officeHours) {
-        this.extraSessions = officeHours;
+    public Java(ExtraSessions extraSessions) {
+        this.extraSessions = extraSessions;
     }
 
     @Override
