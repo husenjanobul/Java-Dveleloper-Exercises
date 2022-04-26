@@ -11,5 +11,7 @@ public class CompanyApp {
         Course course = container.getBean("java",Course.class);
         course.getTeachingHours();
 
+        ((ClassPathXmlApplicationContext) container).close();
+
     }
 }
