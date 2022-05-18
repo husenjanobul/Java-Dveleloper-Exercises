@@ -37,5 +37,18 @@
 <br>
 <a th:href="@{/student/welcome(id=${student.id})}"> Student by Id</a>
 
+
+<!--Iteration-->
+<ul>
+    <li th:each="number : ${numbers}" th:text="${number}"></li>
+</ul>
+
+<!--Fragment-->
+<div th:replace="fragments/footer :: husenjan"></div>
+<br>
+<br>
+<br>
+<div th:replace="fragments/footer :: company"></div>
+
 </body>
 </html>
