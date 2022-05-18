@@ -23,5 +23,19 @@
 <h2 th:text="${student.getFirstName() + student.getLastName()}"></h2>
 <h2 th:text="${student.firstName + student.lastName}"></h2>
 
+
+<!--Link-->
+<a th:href="@{https://www.google.com}">Google</a>
+<br>
+<a th:href="@{/student/register}">Register</a>
+<br>
+<br>
+<br>
+
+<!--adding parameters to link-->
+<a th:href="@{/student/welcome(id=3)}"> student by id</a>
+<br>
+<a th:href="@{/student/welcome(id=${student.id})}"> Student by Id</a>
+
 </body>
 </html>
