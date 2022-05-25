@@ -20,15 +20,21 @@
             Welcome to Employee Register Page
         </h2>
         <div class="card-body">
-            <form th:object="${employee}" th:action="@{/employee/list}" action="#" method="post">
+            <form class="needs-validation" novalidate th:object="${employee}" th:action="@{/employee/list}" action="#" method="post">
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="firstName4">First Name</label>
-                        <input class="form-control" id="firstName4" th:field="*{firstName}" placeholder="First Name">
+                        <input class="form-control" id="firstName4" th:field="*{firstName}" placeholder="First Name" required>
+                        <div class="invalid-feedback">
+                            Please enter firstName.
+                        </div>
                     </div>
                     <div class="form-group col">
                         <label for="lastName4">Last Name</label>
-                        <input class="form-control" id="lastName4" th:field="*{lastName}" placeholder="Last Name">
+                        <input class="form-control" id="lastName4" th:field="*{lastName}" placeholder="Last Name" required>
+                        <div class="invalid-feedback">
+                            Please enter lastName.
+                        </div>
                     </div>
                     <div class="form-group col">
                         <label for="birthday4">Birthday</label>
@@ -39,17 +45,26 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input class="form-control" id="inputEmail4" th:field="*{email}" placeholder="Email" type="email">
+                        <input class="form-control" id="inputEmail4" th:field="*{email}" placeholder="Email" type="email" required>
+                        <div class="invalid-feedback">
+                            Please enter email.
+                        </div>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Password</label>
-                        <input class="form-control" id="inputPassword4" th:field="*{password}" placeholder="Password" type="password">
+                        <input class="form-control" id="inputPassword4" th:field="*{password}" placeholder="Password" type="password" required>
+                        <div class="invalid-feedback">
+                            Please enter password.
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputAddress">Address</label>
-                    <input class="form-control" id="inputAddress" th:field="*{address}" placeholder="1234 Main St" type="text">
+                    <input class="form-control" id="inputAddress" th:field="*{address}" placeholder="1234 Main St" type="text" required>
+                    <div class="invalid-feedback">
+                        Please enter address.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress2">Address 2</label>
@@ -59,7 +74,10 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input class="form-control" id="inputCity" th:field="*{city}" type="text">
+                        <input class="form-control" id="inputCity" th:field="*{city}" type="text" required>
+                        <div class="invalid-feedback">
+                            Please enter city.
+                        </div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputState">State</label>
@@ -69,7 +87,10 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Zip</label>
-                        <input class="form-control" id="inputZip" th:field="*{zipCode}" type="text">
+                        <input class="form-control" id="inputZip" th:field="*{zipCode}" type="text" required>
+                        <div class="invalid-feedback">
+                            Please enter zipCode.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -97,5 +118,25 @@
 <script crossorigin="anonymous"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 </body>
 </html>
