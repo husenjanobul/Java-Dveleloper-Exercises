@@ -1,12 +1,13 @@
 package com.company.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity // create class name table "car"
+@Table(name = "cars") //create "cars" table
 public class Car {
 
-    @Id
+    @Id // primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String make;
