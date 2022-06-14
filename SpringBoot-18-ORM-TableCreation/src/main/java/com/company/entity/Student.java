@@ -1,5 +1,7 @@
 package com.company.entity;
 
+import com.company.enums.Gender;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,7 +16,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // generate id automatically
     private Long studentId;
 
-    @Column(name = "studentFirstName") //change column name
+//    @Column(name = "studentFirstName") //change column name
     private String firstName;
     private String lastName;
     private String email;
@@ -30,16 +32,21 @@ public class Student {
     @Temporal(TemporalType.TIMESTAMP)
     private Date birthDateTime;
 
-//java8
+    //java8
     private LocalDate localDate;
     private LocalTime localTime;
     private LocalDateTime localDateTime;
-//or
+    //or
     @Column(columnDefinition = "DATE")
     private LocalDate localDate1;
     @Column(columnDefinition = "TIME")
     private LocalTime localTime1;
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime localDateTime1;
+
+
+    // if you didn't put @Enumerated Gender will be integer, after put  @Enumerated(EnumType.STRING) gender will be string
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
 }
