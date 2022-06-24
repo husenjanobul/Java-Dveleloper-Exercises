@@ -20,9 +20,7 @@ public class Department extends BaseEntity {
     private String department;
     private String division;
 
-    @OneToOne(mappedBy = "department")
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+//    private Employee employee;
 
     public Department(String department, String division) {
         this.department = department;
