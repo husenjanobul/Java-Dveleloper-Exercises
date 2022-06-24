@@ -31,6 +31,12 @@ public class Employee extends BaseEntity {
 
     private int salary;
 
+    //CascadeType.ALL -> create , delete or update ... for department object it will happen also in Department class
+//    @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST})
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "department_id")
+    private Department department;
+
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, Gender gender, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
