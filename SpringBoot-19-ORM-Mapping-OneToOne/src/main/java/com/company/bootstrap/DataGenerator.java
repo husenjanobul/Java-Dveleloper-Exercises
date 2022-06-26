@@ -2,6 +2,7 @@ package com.company.bootstrap;
 
 import com.company.entity.Department;
 import com.company.entity.Employee;
+import com.company.entity.Region;
 import com.company.enums.Gender;
 import com.company.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,19 @@ public class DataGenerator implements CommandLineRunner {
         Department d3 = new Department("Clothing","Home");
         Department d4 = new Department("Phones & Tablets","Electronics");
         Department d5 = new Department("Computers","Electronics");
+
+        Region r1 = new Region("Southwest","United States");
+        Region r2 = new Region("Central","United States");
+        Region r3 = new Region("Northwest","United States");
+        Region r4 = new Region("Quebec'","Canada");
+        Region r5 = new Region("Central","Asia");
+
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+        e5.setRegion(r5);
+
 
         e1.setDepartment(d1);
         e2.setDepartment(d2);
