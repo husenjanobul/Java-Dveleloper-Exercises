@@ -20,12 +20,12 @@ public class Person {
     private String firstName;
     private String lastName;
 
-//    @OneToMany(mappedBy = "person")
-//    private List<Address> address;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id")
+    @OneToMany(mappedBy = "person")
     private List<Address> address;
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "person_id")
+//    private List<Address> address;
 
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
