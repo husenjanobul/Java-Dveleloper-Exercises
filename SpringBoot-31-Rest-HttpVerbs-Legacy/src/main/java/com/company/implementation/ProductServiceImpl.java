@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> updateProducts(long id, Product product) {
+    public List<Product> updateProduct(long id, Product product) {
         Product obj = productRepository.findById(id).get();
         obj.setName(product.getName());
         productRepository.save(obj);
@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> createProducts(Product product) {
+    public List<Product> createProduct(Product product) {
         productRepository.save(product);
         return productRepository.findAll();
     }
