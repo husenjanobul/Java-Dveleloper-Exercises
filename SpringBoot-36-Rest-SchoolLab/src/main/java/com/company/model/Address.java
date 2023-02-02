@@ -10,6 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
 
 @Entity
 @Table(name = "address")
@@ -50,6 +53,17 @@ public class Address extends BaseEntity {
         return consumeTemp(this.city);
     }
     public Integer consumeTemp(String city){
-        return 5;
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        String BASE_URL = "http://api.weatherstack.com/current?access_key=02a009b8e3922c395677a1e85406aca6&query=";
+
+        String uri = BASE_URL + city;
+        Object currentWeather = restTemplate.getForObject(uri,Object.class);
+
+        Map<String,Object> getWeather = (Map<String, Object>) currentWeather;
+        Map<String,Object> getTemperature = (Map<String, Object>) getWeather.get("current");
+
+        return Integer.parseInt(getTemperature.get("temperature").toString());
     }
 }
