@@ -1,6 +1,7 @@
 package com.company.entity;
 
 import com.company.enums.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,8 @@ import lombok.ToString;
 @Setter
 @Table(name = "account_details")
 @ToString
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
+
 public class Account extends BaseEntity{
 
     private String name;
