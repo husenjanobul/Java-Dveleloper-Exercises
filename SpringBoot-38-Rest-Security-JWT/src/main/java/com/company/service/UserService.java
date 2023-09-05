@@ -6,9 +6,11 @@ import com.company.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class  UserService {
 
     private final UserRepository userRepository;
