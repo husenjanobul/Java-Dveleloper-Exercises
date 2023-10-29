@@ -22,5 +22,9 @@ public class AppConfig2 {
     public String  test(){
         return "Primary test";
     }
+    @Bean
+    public String  test1(){
+        return "Primary test1";
+    }
 
 }
