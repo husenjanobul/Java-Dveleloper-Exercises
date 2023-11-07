@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 //@Scope("prototype")
 //or
-@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+//@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class CommentService {
 
     private final CommentRepository commentRepository;
@@ -20,6 +20,7 @@ public class CommentService {
     public CommentService(CommentRepository commentRepository, @Qualifier("push") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
+        System.out.println("Hello Eager way to creat bean");
     }
 
     public void publishComment(Comment comment){
