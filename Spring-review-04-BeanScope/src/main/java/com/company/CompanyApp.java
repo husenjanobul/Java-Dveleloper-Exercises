@@ -19,6 +19,7 @@ public class CompanyApp {
 
         System.out.println("cs1 = " + cs1);
         System.out.println("cs2 = " + cs2);
+        System.out.println(cs1 == cs2);
 
     }
 }

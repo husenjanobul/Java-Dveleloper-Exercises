@@ -4,9 +4,14 @@ import com.company.model.Comment;
 import com.company.proxy.CommentNotificationProxy;
 import com.company.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+//@Scope("prototype")
+//or
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class CommentService {
 
     private final CommentRepository commentRepository;
