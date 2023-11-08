@@ -1,10 +1,10 @@
-package com.example.springreview05springbootdemo;
+package com.company;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CompanyApplicationTests {
+class ControllerApplicationTests {
 
     @Test
     void contextLoads() {
