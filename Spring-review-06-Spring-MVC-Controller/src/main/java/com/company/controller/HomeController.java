@@ -15,4 +15,11 @@ public class HomeController {
     public String welcome(){
         return "welcome.html";
     }
+
+    @RequestMapping("/") //or
+//    @RequestMapping
+    public String defaultPage(){
+        return "welcome.html";
+    }
+
 }
