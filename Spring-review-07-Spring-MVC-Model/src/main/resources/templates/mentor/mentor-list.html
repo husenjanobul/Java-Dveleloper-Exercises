@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentors</title>
+</head>
+<body>
+<table>
+  <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Age</td>
+      <td>Gender</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td th:text="${mentor1.firstName}"></td>
+      <td th:text="${mentor1.latName}"></td>
+      <td th:text="${mentor1.age}"></td>
+      <td th:text="${mentor1.gender}"></td>
+    </tr>
+    <tr>
+      <td th:text="${mentor2.firstName}"></td>
+      <td th:text="${mentor2.latName}"></td>
+      <td th:text="${mentor2.age}"></td>
+      <td th:text="${mentor2.gender}"></td>
+    </tr>
+    <tr>
+      <td th:text="${mentor3.firstName}"></td>
+      <td th:text="${mentor3.latName}"></td>
+      <td th:text="${mentor3.age}"></td>
+      <td th:text="${mentor3.gender}"></td>
+    </tr>
+<!--  or  -->
+  <tr>
+    <td th:text="${mentors.get(0).firstName}"></td>
+    <td th:text="${mentors.get(0).latName}"></td>
+    <td th:text="${mentors.get(0).age}"></td>
+    <td th:text="${mentors.get(0).gender}"></td>
+  </tr>
+  <tr>
+    <td th:text="${mentors.get(1).firstName}"></td>
+    <td th:text="${mentors.get(1).latName}"></td>
+    <td th:text="${mentors.get(1).age}"></td>
+    <td th:text="${mentors.get(1).gender}"></td>
+  </tr>
+  <tr>
+    <td th:text="${mentors.get(2).firstName}"></td>
+    <td th:text="${mentors.get(2).latName}"></td>
+    <td th:text="${mentors.get(2).age}"></td>
+    <td th:text="${mentors.get(2).gender}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
