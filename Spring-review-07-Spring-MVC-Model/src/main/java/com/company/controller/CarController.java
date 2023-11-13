@@ -38,4 +38,14 @@ public class CarController {
         return "car/car-info";
     }
 
+    @RequestMapping("/info/{make}/{year}")
+    public String getCarInfo(@PathVariable String make,@PathVariable Integer year, Model model){
+//    public String carInfo(@RequestParam String make, Model model){
+
+        model.addAttribute("make",make);
+        model.addAttribute("year",year);
+
+        return "car/car-info";
+    }
+
 }
