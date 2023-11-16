@@ -17,7 +17,17 @@
 <!--    link   -->
 <a th:href="@{https://google.com}">Company Home Page</a>
 <br>
-<a th:href="@{/student/welcome}">Company Welcome Page</a>
+<a th:href="@{/student/welcome}">Company Welcome Page</a><br>
+
+<!-- adding parameters to link  -->
+<a th:href="@{/student/welcome/(id=2)}">Link2</a><br>
+<a th:href="@{/student/welcome/(id=${students.get(1).firstName})}">Link3</a>
+
+
+<!--    iteration   -->
+<ul>
+    <li th:each="student : ${students}" th:text="${student.firstName + ' ' + student.lastName}"></li>
+</ul>
 
 </body>
 </html>
