@@ -1,9 +1,22 @@
 package com.compny.bootstrap;
 
+import com.compny.model.Employee;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class DataGenerator {
+
+    private static List<Employee> employeeList = new ArrayList<>();
+
+    public static void saveEmployee(Employee employee){
+        employeeList.add(employee);
+    }
+
+    public static List<Employee> readAllEmployee(){
+        return employeeList;
+    }
 
     public static List<String> getStateList() {
         return Arrays.asList(

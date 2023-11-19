@@ -25,6 +25,9 @@ public class EmployeeController {
     @PostMapping("/list")
     public String registerEmployee(@ModelAttribute("employee") Employee employee, Model model){
 
+        DataGenerator.saveEmployee(employee);
+
+        model.addAttribute("employees",DataGenerator.readAllEmployee());
 
 
         return "employee/employee-list";
