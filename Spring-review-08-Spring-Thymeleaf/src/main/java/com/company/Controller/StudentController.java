@@ -20,8 +20,8 @@ public class StudentController {
         return "student/register";
     }
 
-//    @RequestMapping("/register")
-    @GetMapping("/register")
+//    @RequestMapping("/welcome")
+    @GetMapping("/welcome")
     public String info(){
 
 

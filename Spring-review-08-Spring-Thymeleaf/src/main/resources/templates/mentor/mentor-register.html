@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>mentor-register</title>
+</head>
+<body>
+
+<!--<h2>Mentor Register</h2>-->
+
+<div align="center">
+
+    <form th:object="${mentor}">
+
+        <label for="firstname">First Name:</label>
+        <input id="firstname" type="text" th:field="*{firstName}">
+        <br>
+
+
+        <label for="lastname">Last Name:</label>
+        <input id="lastname" type="text" th:field="*{lastName}">
+        <br>
+
+        <label for="email">Email:</label>
+        <input id="email" type="email" th:field="*{email}">
+        <br>
+
+        <label for="graduate">Graduate:</label>
+        <input id="graduate" type="checkbox" th:field="*{graduated}">
+        <br>
+
+        <label>Gender:</label>
+        <input type="radio" th:field="*{gender}" value="Male">Male
+        <input type="radio" th:field="*{gender}" value="Female">Female
+        <br>
+
+        <label>Batch Number:</label>
+        <select th:field="*{batch}">
+            <option th:each="theBath : ${batchList}" th:value="${theBath}" th:text="${theBath}"></option>
+        </select>
+        <br>
+
+        <label>Company:</label>
+        <textarea th:field="*{company}"></textarea>
+        <br>
+
+        <button type="submit">Register</button>
+
+
+    </form>
+
+</div>
+
+</body>
+</html>
