@@ -1,5 +1,6 @@
 package com.compny.controller;
 
+import com.compny.bootstrap.DataGenerator;
 import com.compny.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ public class EmployeeController {
     public String createEmployee(Model model){
 
         model.addAttribute("employee",new Employee());
+        model.addAttribute("states", DataGenerator.getStateList());
 
         return "employee/employee-create";
     }

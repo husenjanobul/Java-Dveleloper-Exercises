@@ -62,8 +62,8 @@
                     <div class="form-group col-md-4">
                         <label for="inputState">State</label>
                         <select th:field="*{state}" class="form-control" id="inputState">
-                            <option selected>Choose...</option>
-                            <option>...</option>
+                            <option value="Select" selected>Select</option>
+                            <option th:each="state : ${states}" th:value="${state}" th:text="${state}">...</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">
