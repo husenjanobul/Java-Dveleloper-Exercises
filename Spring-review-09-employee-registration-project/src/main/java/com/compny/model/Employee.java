@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Data
@@ -13,6 +16,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Employee {
 
+    @NotBlank
+    @Size(max = 12, min = 2)
     private String firstName;
     private String lastName;
 
