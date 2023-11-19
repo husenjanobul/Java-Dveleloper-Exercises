@@ -29,11 +29,8 @@ public class MentorController {
     @PostMapping("/confirm")
     public String confirmForm(@ModelAttribute("mentor") Mentor mentor, Model model){
 
-//        model.addAttribute("mentor",new Mentor());
 
-        System.out.println("mentor = " + mentor.toString());
-
-        return "mentor/mentor-confirmation";
+        return "redirect:/mentor/register";
     }
 
 
