@@ -16,11 +16,10 @@ import java.util.List;
 @Component
 public class DataGenerator implements CommandLineRunner {
 
-    DepartmentRepository departmentRepository;
+//    DepartmentRepository departmentRepository;
     EmployeeRepository employeeRepository;
 
-    public DataGenerator(DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
-        this.departmentRepository = departmentRepository;
+    public DataGenerator(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
@@ -39,10 +38,16 @@ public class DataGenerator implements CommandLineRunner {
         Department d4 = new Department("Phones & Tablets","Electronics");
         Department d5 = new Department("Computers","Electronics");
 
-        List<Employee> employeeList = new ArrayList<>(Arrays.asList(e1, e2, e3, e4, e5));
-        List<Department> departmentsList = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5));
+        e1.setDepartment(d1);
+        e2.setDepartment(d2);
+        e3.setDepartment(d3);
+        e4.setDepartment(d4);
+        e5.setDepartment(d5);
 
-        departmentRepository.saveAll(departmentsList);
+        List<Employee> employeeList = new ArrayList<>(Arrays.asList(e1, e2, e3, e4, e5));
+//        List<Department> departmentsList = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5));
+
+//        departmentRepository.saveAll(departmentsList);
         employeeRepository.saveAll(employeeList);
 
 
