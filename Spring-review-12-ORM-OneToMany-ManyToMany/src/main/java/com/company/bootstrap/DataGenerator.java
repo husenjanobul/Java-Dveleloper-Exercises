@@ -1,18 +1,14 @@
 package com.company.bootstrap;
 
-import com.company.entity.Customer;
-import com.company.entity.Merchant;
-import com.company.entity.Payment;
-import com.company.entity.PaymentDetail;
+import com.company.entity.*;
 import com.company.enums.Status;
-import com.company.repository.CustomerRepository;
-import com.company.repository.MerchantRepository;
-import com.company.repository.PaymentRepository;
+import com.company.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 @Component
 public class DataGenerator implements CommandLineRunner {
@@ -22,10 +18,15 @@ public class DataGenerator implements CommandLineRunner {
 
     CustomerRepository customerRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, CustomerRepository customerRepository) {
+    CartRepository cartRepository;
+    ItemRepository itemRepository;
+
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, CustomerRepository customerRepository, CartRepository cartRepository, ItemRepository itemRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
         this.customerRepository = customerRepository;
+        this.cartRepository = cartRepository;
+        this.itemRepository = itemRepository;
     }
 
     @Override
@@ -59,6 +60,24 @@ public class DataGenerator implements CommandLineRunner {
         paymentRepository.save(payment2);
 
 //        paymentRepository.delete(payment1);
+
+
+        Item item1 = new Item("Milk","M01");
+        Item item2 = new Item("Sugar","S01");
+        Item item3 = new Item("Bread","B01");
+
+        itemRepository.save(item1);
+        itemRepository.save(item2);
+        itemRepository.save(item3);
+
+        Cart cart1 = new Cart();
+        Cart cart2 = new Cart();
+
+        cart1.setItems(Arrays.asList(item1,item2,item3));
+        cart2.setItems(Arrays.asList(item1,item2));
+
+        cartRepository.save(cart1);
+        cartRepository.save(cart2);
 
     }
 }
