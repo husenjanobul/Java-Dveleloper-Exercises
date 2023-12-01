@@ -7,19 +7,24 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
 @Data
-public class MovieCinema extends BaseEntity{
+public class Ticket extends BaseEntity{
 
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Movie movie;
+    private Integer seatNumber;
+    private Integer rowNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Cinema cinema;
+    private MovieCinema movieCinema;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User userAccount;
+
 }
