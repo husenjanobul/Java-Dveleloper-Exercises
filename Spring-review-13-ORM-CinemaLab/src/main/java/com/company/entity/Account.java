@@ -23,7 +23,7 @@ public class Account extends BaseEntity{
 
 
     @Enumerated(EnumType.STRING)
-    private UserRole userRole = UserRole.USER;
+    private UserRole role = UserRole.USER;
 
     @OneToOne(mappedBy = "account")
     private User user;
