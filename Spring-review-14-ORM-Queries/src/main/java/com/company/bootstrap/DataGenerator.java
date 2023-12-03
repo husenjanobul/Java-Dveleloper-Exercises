@@ -17,7 +17,11 @@ public class DataGenerator implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         System.out.println("------------------- Region Start -----------------");
-        System.out.println("regionRepository.findByCountry(\"Canada\") = " + regionRepository.findByCountry("Canada").toString());
+        System.out.println("regionRepository.findByCountry(\"Canada\") = " + regionRepository.findByCountry("Canada"));
+        System.out.println("regionRepository.findDistinctByCountry(\"Canada\") = " + regionRepository.findDistinctByCountry("Canada"));
+        System.out.println("regionRepository.findByCountryContaining(\"United\") = " + regionRepository.findByCountryContaining("United"));
+        System.out.println("regionRepository.findByCountryContainingOrderByCountry(\"Asia\") = " + regionRepository.findByCountryContainingOrderByCountry("Asia"));
+        System.out.println("regionRepository.findTop2ByCountry(\"Canada\") = " + regionRepository.findTop2ByCountry("Canada"));
 
         System.out.println("------------------- Region Start -----------------");
 
