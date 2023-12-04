@@ -2,13 +2,18 @@ package com.company.repository;
 
 import com.company.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+
+
+    // Derive Query
 
     //Display all employees with email address ' '
     List<Employee> findByEmail(String email);
@@ -40,6 +45,21 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     //Display ALL employees that do not have email address
     List<Employee> findByEmailIsNull();
+
+
+
+    //JPQL Query
+    @Query("SELECT e FROM Employee e WHERE e.email = 'amcnee1@google.es'")
+    Employee getEmployeeDetail();
+
+    @Query("select e.salary from Employee e where e.email = 'amcnee1@google.es'")
+    Employee getEmployeeSalary();
+
+    @Query("SELECT e FROM Employee e WHERE e.email = ?1")
+    Optional<Employee> getEmployeeDetail(String email);
+
+    @Query("SELECT e FROM Employee e WHERE e.email = ?1 and e.salary = ?2")
+    Optional<Employee> getEmployeeDetail(String email,int salary);
 
 
 

@@ -2,15 +2,14 @@ package com.company.entity;
 
 import com.company.enums.Gender;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
 @NoArgsConstructor
-//@Data
+@Data
 public class Employee extends BaseEntity{
 
     private String firstName;
@@ -24,11 +23,11 @@ public class Employee extends BaseEntity{
     private Gender gender;
     private Integer salary;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "department")
     private Department department;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Region region;
 
 
