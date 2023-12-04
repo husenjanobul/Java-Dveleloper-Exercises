@@ -53,7 +53,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Employee getEmployeeDetail();
 
     @Query("select e.salary from Employee e where e.email = 'amcnee1@google.es'")
-    Employee getEmployeeSalary();
+    Integer getEmployeeSalary();
 
     @Query("SELECT e FROM Employee e WHERE e.email = ?1")
     Optional<Employee> getEmployeeDetail(String email);
