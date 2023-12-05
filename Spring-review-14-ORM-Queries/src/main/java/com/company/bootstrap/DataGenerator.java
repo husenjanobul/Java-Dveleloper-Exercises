@@ -1,5 +1,6 @@
 package com.company.bootstrap;
 
+import com.company.repository.CourseRepository;
 import com.company.repository.DepartmentRepository;
 import com.company.repository.EmployeeRepository;
 import com.company.repository.RegionRepository;
@@ -11,12 +12,15 @@ public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
-    private  EmployeeRepository employeeRepository;
+    private  final EmployeeRepository employeeRepository;
 
-    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
+    private final CourseRepository courseRepository;
+
+    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository, CourseRepository courseRepository) {
         this.regionRepository = regionRepository;
         this.departmentRepository = departmentRepository;
         this.employeeRepository = employeeRepository;
+        this.courseRepository = courseRepository;
     }
 
     @Override
@@ -49,6 +53,17 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("employeeRepository.findByFirstNameAndLastNameAndEmailNotNull(\"Zane\") = " + employeeRepository.findByFirstNameAndLastNameOrEmail("Zane","Breem","amcnee1@google.es").toString());
 
         System.out.println("------------------- Employee End -----------------");
+
+
+        System.out.println("------------------- Course Start -----------------");
+
+        System.out.println("courseRepository.findByCategory(\"Spring\") = " + courseRepository.findByCategory("Spring")); //or
+        courseRepository.findByCategory("Spring").forEach(System.out::println);
+        System.out.println("===============================");
+        courseRepository.findByCategoryOrderByName("Spring").forEach(System.out::println);
+        System.out.println("courseRepository.existsByName(\"MVC\") = " + courseRepository.existsByName("MVC"));
+
+        System.out.println("------------------- Course End -----------------");
 
 
     }
