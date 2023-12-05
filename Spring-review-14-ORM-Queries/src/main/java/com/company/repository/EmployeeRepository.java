@@ -109,7 +109,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     //
 //    @Query("select e from Employee e where e.salary = ?1") //JPQL
-    @Query(value = "select * from Employee where salary ?1",nativeQuery = true) //
+    @Query(value = "select * from employees where salary ?1",nativeQuery = true) //
     List<Employee> getEmployeeDetailBySalary(int salary);
 
 
@@ -126,7 +126,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "update Employee set email = 'admin@email.com' where id = :id",nativeQuery = true )
+    @Query(value = "update employees set email = 'admin@email.com' where id = :id",nativeQuery = true )
     void updateEmployeeNativeQuery(@Param("id") Long id);
 
 
