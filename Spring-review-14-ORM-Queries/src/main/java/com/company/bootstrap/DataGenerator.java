@@ -62,6 +62,9 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("===============================");
         courseRepository.findByCategoryOrderByName("Spring").forEach(System.out::println);
         System.out.println("courseRepository.existsByName(\"MVC\") = " + courseRepository.existsByName("MVC"));
+        System.out.println("courseRepository.countByCategory(\"Spring\") = " + courseRepository.countByCategory("Spring"));
+        System.out.println("courseRepository.findByNameStartsWith(\"Getting\") = " + courseRepository.findByNameStartsWith("Getting"));
+//        courseRepository.streamByCategory("Spring").forEach(System.out::println);
 
         System.out.println("------------------- Course End -----------------");
 
