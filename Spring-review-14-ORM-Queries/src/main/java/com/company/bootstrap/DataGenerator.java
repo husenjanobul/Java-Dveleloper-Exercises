@@ -4,10 +4,12 @@ import com.company.repository.CourseRepository;
 import com.company.repository.DepartmentRepository;
 import com.company.repository.EmployeeRepository;
 import com.company.repository.RegionRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
+@Transactional
 public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
@@ -64,7 +66,8 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("courseRepository.existsByName(\"MVC\") = " + courseRepository.existsByName("MVC"));
         System.out.println("courseRepository.countByCategory(\"Spring\") = " + courseRepository.countByCategory("Spring"));
         System.out.println("courseRepository.findByNameStartsWith(\"Getting\") = " + courseRepository.findByNameStartsWith("Getting"));
-//        courseRepository.streamByCategory("Spring").forEach(System.out::println);
+        System.out.println("===============================");
+        courseRepository.streamByCategory("Spring").forEach(System.out::println);
 
         System.out.println("------------------- Course End -----------------");
 
