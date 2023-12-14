@@ -52,6 +52,11 @@ public class CourseController {
         courseService.deleteCourseById(id);
     }
 
+    @DeleteMapping()
+    public void deleteCourseById() {
+        courseService.deleteCourses();
+    }
+
 
 
 }
