@@ -1,6 +1,7 @@
 package com.company.controller;
 
 import com.company.dto.CourseDTO;
+import com.company.repository.CourseRepository;
 import com.company.service.CourseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,21 @@ public class CourseController {
     public List<CourseDTO> getCoursesByCategory(@PathVariable("name") String category){
 
         return courseService.getCoursesByCategory(category);
+    }
+
+    @PostMapping()
+    public CourseDTO createCourse(@RequestBody CourseDTO course){
+        return courseService.createCourse(course);
+    }
+
+    @PutMapping("{id}")
+    public void updateCourse(@PathVariable("id") Long id,@RequestBody CourseDTO course){
+        courseService.updateCourse(id,course);
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteCourseById(@PathVariable("id") Long id) {
+        courseService.deleteCourseById(id);
     }
 
 
