@@ -2,12 +2,13 @@ package com.company.controller;
 
 import com.company.dto.CourseDTO;
 import com.company.service.CourseService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // @Controller + @ResponseBody
-@RequestMapping("/courses/api/v1")
+@RestController  // = (@Controller + @ResponseBody) if this annotation available no need to write Method level @ResponseBody annotation
+@RequestMapping("/courses")
 public class CourseController {
 
     private final CourseService courseService;
@@ -17,77 +18,23 @@ public class CourseController {
     }
 
     @GetMapping
+//    @ResponseBody
     public List<CourseDTO> getAllCourses(){
-        List<CourseDTO> list = courseService.getCourses();
-        return list;
 
+        return courseService.getCourses();
     }
 
     @GetMapping("{id}")
-    public CourseDTO getCourseById(@PathVariable("id") Long courseId){
-        return courseService.getCourseById(courseId);
+    public CourseDTO getCourseById(@PathVariable("id") Long id){
+
+        return courseService.getCourseById(id);
     }
 
-    @GetMapping("category/{name}")
-    public List<CourseDTO> getCourseByCategory(@PathVariable("name") String category){
+    @GetMapping("/category/{name}")
+    public List<CourseDTO> getCoursesByCategory(@PathVariable("name") String category){
+
         return courseService.getCoursesByCategory(category);
-
     }
-
-    @PostMapping
-    public CourseDTO createCourse(@RequestBody CourseDTO course){
-        return courseService.createCourse(course);
-    }
-
-    @PutMapping("{id}")
-    public void updateCourse(@PathVariable("id") Long courseId,@RequestBody CourseDTO course){
-        courseService.updateCourse(courseId,course);
-    }
-
-    @DeleteMapping("{id}")
-    public void deleteCourseById(@PathVariable("id") Long courseId){
-        courseService.deleteCourseById(courseId);
-    }
-
-    @DeleteMapping
-    public void deleteCourses(){
-        courseService.deleteCourses();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
