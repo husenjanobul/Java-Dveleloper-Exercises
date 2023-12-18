@@ -1,11 +1,12 @@
 package com.company.controller;
 
+import com.company.entity.Genre;
 import com.company.entity.MovieCinema;
 import com.company.repository.GenreRepository;
 import com.company.repository.MovieCinemaRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -25,9 +26,27 @@ public class Consume_WebClient {
         return Flux.fromIterable(movieCinemaRepository.findAll());
     }
 
+//    @GetMapping("/mono-movie-cinema/{id}")
+//    public Mono<MovieCinema> readById(@PathVariable("id") Long id){
+//        return Mono.just(movieCinemaRepository.findById(id).get());
+//    }
+
+    //or
+
     @GetMapping("/mono-movie-cinema/{id}")
-    public Mono<MovieCinema> readById(@PathVariable("id") Long id){
-        return Mono.just(movieCinemaRepository.findById(id).get());
+    public ResponseEntity<Mono<MovieCinema>> readById(@PathVariable("id") Long id){
+        return ResponseEntity.ok(Mono.just(movieCinemaRepository.findById(id).get()));
+    }
+
+    @PostMapping("/create-genre")
+    public Mono<Genre> createGenre(@RequestBody Genre genre){
+        return Mono.just(genreRepository.save(genre));
+    }
+
+    @DeleteMapping("/delete/genre/{id}")
+    public Mono<Void> deleteGenre(@PathVariable("id") Long id){
+        genreRepository.deleteById(id);
+        return Mono.empty();
     }
 
 
