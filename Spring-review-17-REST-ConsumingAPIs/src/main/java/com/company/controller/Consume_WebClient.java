@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 @RestController
 public class Consume_WebClient {
 
+    private WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080").build();
     private final MovieCinemaRepository movieCinemaRepository;
     private final GenreRepository genreRepository;
 
@@ -31,8 +32,6 @@ public class Consume_WebClient {
 //        return Mono.just(movieCinemaRepository.findById(id).get());
 //    }
 
-    //or
-
     @GetMapping("/mono-movie-cinema/{id}")
     public ResponseEntity<Mono<MovieCinema>> readById(@PathVariable("id") Long id){
         return ResponseEntity.ok(Mono.just(movieCinemaRepository.findById(id).get()));
@@ -50,4 +49,33 @@ public class Consume_WebClient {
     }
 
 
+
+//    ---------------------------WEBCLIENT---------------------------
+
+
+    // not worked as expectation - it should be working but i did not find the problem
+//    @GetMapping("/flux")
+//    public Flux<MovieCinema> readWithWebClient(){
+//
+//        return webClient
+//                .get()
+//                .uri("/flux-movie-cinemas")
+//                .retrieve()
+//                .bodyToFlux(MovieCinema.class);
+//
+//    }
+
+
+
+    // not worked as expectation - it should be working but i did not find the problem
+//    @GetMapping("/mono/{id}")
+//    public Mono<MovieCinema> readMonoWithWebClient(@PathVariable("id") Long id){
+//
+//        return webClient
+//                .get()
+//                .uri("/mono-movie-cinema/{id}",id)
+//                .retrieve()
+//                .bodyToMono(MovieCinema.class);
+//
+//    }
 }
