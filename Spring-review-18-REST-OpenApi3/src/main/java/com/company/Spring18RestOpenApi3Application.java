@@ -13,4 +13,10 @@ public class Spring18RestOpenApi3Application {
         SpringApplication.run(Spring18RestOpenApi3Application.class, args);
     }
 
+    @Bean
+    public OpenAPI customOpenApi(){
+        return new OpenAPI()
+                .info(new Info().title("Cinema App OpenApi").version("V1").description("Cinema App Api Documentation"));
+    }
+
 }

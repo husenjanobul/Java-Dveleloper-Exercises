@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@Tag(name = "Cinema",description = "Cinema CRUD Operations")
 public class CinemaController {
 
     private final CinemaRepository cinemaRepository;
